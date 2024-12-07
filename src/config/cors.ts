@@ -4,7 +4,7 @@ export const configCors = {
     origin: [
         "http://localhost:3000",
         "https://short-backend-production.up.railway.app/",
-        "https://short-frontend.pages.dev/",
+        "https://short-blue.vercel.app/",
     ],
     optionsSuccessStatus: 200,
 };
