@@ -2,9 +2,8 @@
   "name": "short",
   "module": "index.ts",
   "scripts": {
-    "start": "bun run src/index.ts",
-    "dev": "bun --watch run src/index.ts",
-    "migrate:deploy": "bun run prisma migrate deploy"
+    "start": "bun run prisma migrate deploy && bun run src/index.ts",
+    "dev": "bun --watch run src/index.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
