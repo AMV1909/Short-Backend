@@ -1,7 +1,7 @@
 import type { RequestHandler } from "express";
 import { ReasonPhrases, StatusCodes } from "http-status-codes";
 
-import { prisma } from "../config/prisma";
+import { urls } from "../models/urls";
 import { generateRandomText } from "../helpers/generateRandomText";
 
 export const getUrl: RequestHandler = async (req, res) => {
@@ -14,11 +14,7 @@ export const getUrl: RequestHandler = async (req, res) => {
     }
 
     try {
-        const url = await prisma.urls.findUnique({
-            where: {
-                shortUrl,
-            },
-        });
+        const url = await urls.findOne({ shortUrl });
 
         if (!url) {
             return res.status(StatusCodes.NOT_FOUND).json({
@@ -42,12 +38,7 @@ export const createUrl: RequestHandler = async (req, res) => {
     try {
         const shortUrl = generateRandomText(10);
 
-        await prisma.urls.create({
-            data: {
-                shortUrl,
-                longUrl: url,
-            },
-        });
+        await urls.create({ shortUrl, longUrl: url });
 
         const origin =
             req.get("origin") ||

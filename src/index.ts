@@ -1,4 +1,5 @@
 import { app } from "./app";
+import "./config/db";
 
 // Start the server
 app.listen(app.get("port"), () => {
