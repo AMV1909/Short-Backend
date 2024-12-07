@@ -3,8 +3,8 @@ export const configCors = {
     allowedHeaders: `Content-Type,Authorization`,
     origin: [
         "http://localhost:3000",
-        "https://short-backend-production.up.railway.app/",
-        "https://short-blue.vercel.app/",
+        "https://short-backend-production.up.railway.app",
+        "https://short-blue.vercel.app",
     ],
     optionsSuccessStatus: 200,
 };
